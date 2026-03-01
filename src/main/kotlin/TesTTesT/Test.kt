@@ -58,7 +58,7 @@ fun writeToFileJson(file: File) {
 fun enterExitListItem(): List<Item>{
     val itemsList = mutableListOf<Item>()
     while (true) {
-        println("enter id or zero to exirt")
+        println("enter id or zero to exit")
         val id = readln().toInt()
         if (id == 0) break
         println("enter name")
