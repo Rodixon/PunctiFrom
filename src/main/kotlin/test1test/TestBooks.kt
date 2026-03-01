@@ -1,25 +1,18 @@
-package TesTTesT
-
+package test1test
 import kotlinx.serialization.json.Json
 import java.io.File
 
 fun main() {
-    println("----1=======")
     val flBk = File("books.json")
-    println("----2======")
     adBBooks(flBk)
-    println("----33=====")
     readBooks(flBk)
-    println("----44=====")
     for (bk in readBooks(flBk)){
         println(bk)
     }
-    println("----=====")
 }
 
 fun readBooks(file: File): List<Book> {
-    val stringsBooks = Json.decodeFromString<List<Book>>(file.readText().trim())
-    return stringsBooks
+    return Json.decodeFromString<List<Book>>(file.readText().trim())
 }
 
 fun adBBooks(file: File) {

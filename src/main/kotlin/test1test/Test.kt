@@ -1,4 +1,4 @@
-package TesTTesT
+package test1test
 
 import kotlinx.serialization.json.Json
 import java.io.File
@@ -14,14 +14,14 @@ fun main() {
     for (i in readFromFileT(fileT)){
         println(i)
     }
-    println("-----2=----")
+    println("-----33=----")
     for (i in readFromFileJ(fileJ)){
         println(i)
     }
     println("-----kc=----")
 }
 
-//deserialization textom
+//deserialization text
 fun readFromFileT(file: File): List<Item> {
     val itemsList2T = mutableListOf<Item>()
     val content = file.readText().trim()
@@ -36,23 +36,21 @@ fun readFromFileT(file: File): List<Item> {
     return itemsList2T
 }
 
-//deserialization jsonom
+//deserialization json
 fun readFromFileJ(file: File): List<Item> {
-    val content = file.readText().trim()
-    return Json.decodeFromString<List<Item>>(content)
+    return Json.decodeFromString(file.readText().trim())
 }
 
-//serialization textom
+//serialization text
 fun writeToFileTxt(file: File) {
     for (it in enterExitListItem()) {
         file.appendText("${it.id}%${it.name}\n")
     }
 }
 
-//serialization jsonom
+//serialization json
 fun writeToFileJson(file: File) {
-    val itemsASstring = Json.encodeToString(enterExitListItem())
-    file.appendText(itemsASstring)
+    file.appendText(Json.encodeToString(enterExitListItem()))
 }
 
 fun enterExitListItem(): List<Item>{
