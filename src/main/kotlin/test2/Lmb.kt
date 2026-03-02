@@ -65,6 +65,5 @@ val numbers = strings.map { it.toInt() } // Преобразование стр�
 
 //println(numbers) // [1, 2, 3]
 fun main() {
-    println(startProcessing())
-
+    println("push3")
 }

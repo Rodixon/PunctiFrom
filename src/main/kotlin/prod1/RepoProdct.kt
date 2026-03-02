@@ -4,7 +4,7 @@ import kotlinx.serialization.json.Json
 import java.io.File
 
 object RepoProdct {
-    private val file1prdjs = File("products.json")
+    private val file1prdjs = File("productsDesc1.json")
 
     private  val _products = loadProducts(file1prdjs)
         val products

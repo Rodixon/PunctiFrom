@@ -12,7 +12,7 @@ data class Product(
 
     @SerialName("id") val id: Int,
     @SerialName("product_name") val productName: String,
-    //@SerialName("product_description") val productDescription: String,
+    @SerialName("product_description") val productDescription: String,
     @SerialName("product_category") val productCategory: Category,
     @SerialName("product_price") val productPrice: Double,
     @SerialName("product_brand") val productBrand: String,
