@@ -3,12 +3,22 @@ package prof1
 fun main() {
 
         val profiles = RepoProfil.profiles
-//        for (profile in profiles) {
-//                println(profile)
-//        }
 
         val p= filterMAle(filterB(filter25(profiles)))
-        for (ps in p){
+
+        var d = filter(profiles, AgePers())
+        d = filter(profiles, NameB())
+        d= filter(profiles, GenFL())
+        d= filter(profiles, GenML())
+
+
+d = filter(profiles, object : Condition {
+        override fun isSuitable(person: Person): Boolean {
+                return person.firstName.startsWith("Z")
+        }
+})
+
+        for (ps in d){
                 println(ps)
         }
 
@@ -16,6 +26,16 @@ fun main() {
 
 
 
+}
+
+fun filter(persones: List<Person>, condition: Condition): List<Person> {
+        val filteredPersons = mutableListOf<Person>()
+        for (person in persones) {
+                if (condition.isSuitable(person)){
+                        filteredPersons += person
+                }
+        }
+        return filteredPersons
 }
 
 fun filter25(persones: List<Person>): List<Person> {
