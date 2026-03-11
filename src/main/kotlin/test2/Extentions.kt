@@ -23,6 +23,8 @@ fun processList() {
 
 fun primer(){
     println("primer")
+    println("primer2")
+
 }
 
 
