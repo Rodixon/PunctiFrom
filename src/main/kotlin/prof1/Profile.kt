@@ -1,6 +1,7 @@
 package prof1
 
-import prof1.filterGenericExt
+import AllExtentions.transformLineAE
+
 
 fun main() {
 
@@ -24,17 +25,26 @@ fun main() {
     val newList = filterGeneric(profiles) { it.age > 40}
 
     val profilesExt = RepoProfil.profiles
-        .filterExt {it.firstName.startsWith("W")  }
-        .filterExt {it.firstName.startsWith("x")  }
-        .transformExt {  }
+        //.filterExt {it.firstName.startsWith("W")  }
+        //.filterExt {it.firstName.startsWith("x")  }
+        //.transformExt {  }
+        //.transformLineAE{}
+        //.minBy { it.age }
 
 
-    for (ps in newList) {
-        println(ps)
-    }
+    profilesExt.sortedBy { it.firstName }.forEach { println("${it.firstName} -- ${it.email}") }
+
+
+//
+//    for (ps in newList) {
+//        println(ps)
+//    }
 
 
 }
+
+
+
 
 fun<T, R> List<T>.transformExt( trns:(T)->R): List<R>{
     val fltr = mutableListOf<R>()
