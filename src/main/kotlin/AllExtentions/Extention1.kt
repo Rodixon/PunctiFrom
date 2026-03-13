@@ -25,4 +25,7 @@ inline fun<T> Iterable<T>.fore4(code:(T)-> Unit){
     for (a in this){
         code(a)
     }
+
+}inline  fun <T, R> T.myLet(code: (T)->R): R{
+    return code(this)
 }

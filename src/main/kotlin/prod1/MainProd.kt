@@ -1,6 +1,7 @@
 package prod1
 
 import kotlinx.serialization.json.Json
+import org.w3c.dom.ls.LSOutput
 import java.io.File
 
 fun main() {
@@ -27,19 +28,20 @@ fun main() {
         filterGeneric1(filterLmb(products) { it.productCategory == Category.ClothingSS }) { it.copy(productPrice = it.productPrice * 2) }
     val clothX2Xnames = filterGeneric1(cloth) { "${it.id} ${it.productName} ${it.productPrice.toInt()} " }
 
-    val prdcts = RepoProdct.products
+    RepoProdct.products
         .filterExt { it.productPrice>100 }
         .filterExt { it.productPrice<150 }
         .filterExt { it.productCategory == Category.BeautySS }
         .transformExt { it.copy(productRating = 100.0) }
-        .transformExt { it.productName }
+        //.transformExt { it.productName }
+        .forEach{ println("${it}")}
 
 
 
-
-    for (prod in prdcts) {
-        println(prod)
-    }
+//
+//    for (prod in prdcts) {
+//        println(prod)
+//    }
 }
 fun<T, R> List<T>.transformExt( trns:(T)->R): List<R>{
     val fltr = mutableListOf<R>()
