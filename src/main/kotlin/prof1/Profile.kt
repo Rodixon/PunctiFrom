@@ -1,6 +1,7 @@
 package prof1
 
 import AllExtentions.fore4
+import AllExtentions.myAlso
 import AllExtentions.transformLineAE
 
 
@@ -25,28 +26,35 @@ fun main() {
     val newList = filterGeneric(profiles) { it.age > 40 }
 
     val profilesExt = RepoProfil.profiles
-    //.filterExt {it.firstName.startsWith("W")  }
-    //.filterExt {it.firstName.startsWith("x")  }
+        .filterExt { it.firstName.startsWith("W") }.myAlso {
+            println("------------")
+        }
+        .filterExt { it.firstName.startsWith("x") }.myAlso {
+            println("---------1---")
+        }.sortedBy { it.firstName }.myAlso {
+            println("------22------")
+        }.forEach { println("${it.firstName} -- ${it.email}") }
     //.transformExt {  }
     //.transformLineAE{}
-    //.minBy { it.age }
+    //.minBy { it.age }.myAlso {
+//            println("-----2-------")
+//        }
 
     //profilesExt.sortedBy { it.firstName }.fore4 { println("${it.firstName} -- ${it.email}") }
 
 //    for (ps in newList) {
 //        println(ps)
 //    }
-    showEmail()
-
 
 
 }
+
 fun showEmail() {
     println("enter id ")
     val a = readln().toInt()
     RepoProfil.profiles
-        .find{it.id == a}?.email
-        .let { if (it!=null) println(it)else println("no such adress") }
+        .find { it.id == a }?.email
+        .let { if (it != null) println(it) else println("no such adress") }
 
 }
 
